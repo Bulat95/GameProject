@@ -65,6 +65,12 @@
     <Compile Include="Assets\Code\DoorOpenDevice.cs" />
     <Compile Include="Assets\Code\ColorChangeDevice.cs" />
     <Compile Include="Assets\Code\CollectibleItem.cs" />
+    <Compile Include="Assets\Code\DeviceTrigger.cs" />
+    <Compile Include="Assets\Code\IGameManager.cs" />
+    <Compile Include="Assets\Code\ManagerStatus.cs" />
+    <Compile Include="Assets\Code\InventoryManager.cs" />
+    <Compile Include="Assets\Code\PlayerManager.cs" />
+    <Compile Include="Assets\Code\Managers.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\Prefabs\Meshtint Free Knight\www.meshtint.com.txt" />
