@@ -4,21 +4,26 @@ using UnityEngine;
 
 public class PlayerMove : MonoBehaviour
 {
-    public float speedMove;
-    public float jumpPower;
-    private float gravityForce;
-    private Vector3 moveVector;
-    private CharacterController ch_controller;
-    private Animator ch_animator;
-    private MobileController mContr;
+    [SerializeField] private float _speedMove;
+    [SerializeField] private float _jumpPower;
+    [SerializeField] private float _gravityForce;
+
+    private Vector3 _moveVector;
+    private CharacterController _characterController;
+    private Animator _characterAnimator;
+    private MobileController _mobileController;
+
+    public float SpeedMove => _speedMove;
+    public float JumpPower => _jumpPower;
+    public float GravityForce { get => _gravityForce; set => _gravityForce = value; }
+
     void Start()
     {
-        ch_controller = GetComponent<CharacterController>();
-        ch_animator = GetComponent<Animator>();
-        mContr = GameObject.FindGameObjectWithTag("Joystick").GetComponent<MobileController>();
+        _characterController = GetComponent<CharacterController>();
+        _characterAnimator = GetComponent<Animator>();
+        _mobileController = GameObject.FindGameObjectWithTag("Joystick").GetComponent<MobileController>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         CharacterMove();
@@ -26,28 +31,29 @@ public class PlayerMove : MonoBehaviour
     }
     private void CharacterMove()
     {
-        moveVector = Vector3.zero;
-        moveVector.x = mContr.Horizontal() * speedMove;
-        moveVector.z = mContr.Vertical() * speedMove;
+        _moveVector = Vector3.zero;
+        _moveVector.x = _mobileController.Horizontal() * SpeedMove;
+        _moveVector.z = _mobileController.Vertical() * SpeedMove;
 
-        if (moveVector.x != 0 || moveVector.z != 0)
-            ch_animator.SetBool("Move", true);
-        else ch_animator.SetBool("Move", false);
-        if (Vector3.Angle(Vector3.forward, moveVector) > 1f || Vector3.Angle(Vector3.forward, moveVector) == 0)
+        if (_moveVector.x != 0 || _moveVector.z != 0)
+            _characterAnimator.SetBool("Move", true);
+        else _characterAnimator.SetBool("Move", false);
+        if (Vector3.Angle(Vector3.forward, _moveVector) > 1f || Vector3.Angle(Vector3.forward, _moveVector) == 0)
         {
-            Vector3 direct = Vector3.RotateTowards(transform.forward, moveVector, speedMove, 0.0f);
+            Vector3 direct = Vector3.RotateTowards(transform.forward, _moveVector, SpeedMove, 0.0f);
             transform.rotation = Quaternion.LookRotation(direct);
         }
-        moveVector.y = gravityForce;
-        ch_controller.Move(moveVector * Time.deltaTime);
+        _moveVector.y = GravityForce;
+        _characterController.Move(_moveVector * Time.deltaTime);
     }
+
     private void GamingGravity()
     {
-        if (!ch_controller.isGrounded)
-            gravityForce -= 20f * Time.deltaTime;
+        if (!_characterController.isGrounded)
+            GravityForce -= 20f * Time.deltaTime;
         else
-            gravityForce = -1f;
-        if (Input.GetKeyDown(KeyCode.Space) && ch_controller.isGrounded)
-            gravityForce = jumpPower;
+            GravityForce = -1f;
+        if (Input.GetKeyDown(KeyCode.Space) && _characterController.isGrounded)
+            GravityForce = JumpPower;
     }
 }

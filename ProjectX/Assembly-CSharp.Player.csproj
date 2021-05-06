@@ -57,20 +57,20 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Code\Player.cs" />
+    <Compile Include="Assets\Code\DeviceOperator.cs" />
+    <Compile Include="Assets\Code\ManagerStatus.cs" />
     <Compile Include="Assets\Code\MobileController.cs" />
+    <Compile Include="Assets\Code\CollectibleItem.cs" />
+    <Compile Include="Assets\Code\PlayerManager.cs" />
     <Compile Include="Assets\Code\PlayerMove.cs" />
     <Compile Include="Assets\Code\IMove.cs" />
-    <Compile Include="Assets\Code\CameraMove.cs" />
-    <Compile Include="Assets\Code\DeviceOperator.cs" />
-    <Compile Include="Assets\Code\DoorOpenDevice.cs" />
-    <Compile Include="Assets\Code\ColorChangeDevice.cs" />
-    <Compile Include="Assets\Code\CollectibleItem.cs" />
-    <Compile Include="Assets\Code\DeviceTrigger.cs" />
-    <Compile Include="Assets\Code\IGameManager.cs" />
-    <Compile Include="Assets\Code\ManagerStatus.cs" />
-    <Compile Include="Assets\Code\InventoryManager.cs" />
-    <Compile Include="Assets\Code\PlayerManager.cs" />
     <Compile Include="Assets\Code\Managers.cs" />
+    <Compile Include="Assets\Code\IGameManager.cs" />
+    <Compile Include="Assets\Code\DeviceTrigger.cs" />
+    <Compile Include="Assets\Code\CameraMove.cs" />
+    <Compile Include="Assets\Code\InventoryManager.cs" />
+    <Compile Include="Assets\Code\ColorChangeDevice.cs" />
+    <Compile Include="Assets\Code\DoorOpenDevice.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\Prefabs\Meshtint Free Knight\www.meshtint.com.txt" />
