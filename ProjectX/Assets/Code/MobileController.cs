@@ -18,11 +18,13 @@ public class MobileController : MonoBehaviour, IDragHandler, IPointerUpHandler, 
     {
         OnDrag(eventData);
     }
+
     public virtual void OnPointerUp(PointerEventData eventData)
     {
         inputVector = Vector2.zero;
         joystick.rectTransform.anchoredPosition = Vector2.zero;
     }
+
     public virtual void OnDrag(PointerEventData eventData)
     {
         Vector2 position;
