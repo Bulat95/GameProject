@@ -13,6 +13,7 @@ public class PlayerMove : MonoBehaviour
     private Animator _characterAnimator;
     private MobileController _mobileController;
 
+
     public float SpeedMove => _speedMove;
     public float JumpPower => _jumpPower;
     public float GravityForce { get => _gravityForce; set => _gravityForce = value; }
