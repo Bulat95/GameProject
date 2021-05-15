@@ -72,8 +72,6 @@ GameObject:
   - component: {fileID: 1902236474939580005}
   - component: {fileID: 1962085306260310969}
   - component: {fileID: 1902880868285647548}
-  - component: {fileID: 1902880868285647550}
-  - component: {fileID: 1902880868285647547}
   m_Layer: 0
   m_Name: Meshtint Free Knight 1
   m_TagString: Player
@@ -137,34 +135,6 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 1, z: 0}
---- !u!114 &1902880868285647550
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1903832639693125163}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d91baf420adb20f47be93e2699103245, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  radius: 1.5
---- !u!114 &1902880868285647547
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1903832639693125163}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 38e660c2a63f1f04aa2c55de4df4ce82, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _speedMove: 20
-  _jumpPower: 20
-  _gravityForce: -9.8
 --- !u!1 &1903888614159552931
 GameObject:
   m_ObjectHideFlags: 0
