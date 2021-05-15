@@ -4,33 +4,34 @@ using UnityEngine;
 
 public class PlayerMove : MonoBehaviour
 {
-    [SerializeField] private float _speedMove;
-    [SerializeField] private float _jumpPower;
-    [SerializeField] private float _gravityForce;
+    [SerializeField] private float _speedMove = 10;
+    [SerializeField] private float _jumpPower = 15;
+    [SerializeField] private float _gravityForce = -9.8f;
 
-    private Vector3 _moveVector;
-    private CharacterController _characterController;
-    private Animator _characterAnimator;
-    private MobileController _mobileController;
+    internal Vector3 _moveVector;
+    internal CharacterController _characterController;
+    internal Animator _characterAnimator;
+    internal MobileController _mobileController;
+
+    public float SpeedMove { get => _speedMove; set => _speedMove = value; }
+    public float JumpPower { get => _jumpPower; set => _jumpPower = value; }
+    public float GravityForce { get => _gravityForce; private set => _gravityForce = value;}
 
 
-    public float SpeedMove => _speedMove;
-    public float JumpPower => _jumpPower;
-    public float GravityForce { get => _gravityForce; set => _gravityForce = value; }
-
-    void Start()
+    public void Start()
     {
         _characterController = GetComponent<CharacterController>();
         _characterAnimator = GetComponent<Animator>();
         _mobileController = GameObject.FindGameObjectWithTag("Joystick").GetComponent<MobileController>();
     }
 
-    void Update()
+    public void Update()
     {
         CharacterMove();
         GamingGravity();
     }
-    private void CharacterMove()
+
+    public void CharacterMove()
     {
         _moveVector = Vector3.zero;
         _moveVector.x = _mobileController.Horizontal() * SpeedMove;
@@ -48,7 +49,7 @@ public class PlayerMove : MonoBehaviour
         _characterController.Move(_moveVector * Time.deltaTime);
     }
 
-    private void GamingGravity()
+    public void GamingGravity()
     {
         if (!_characterController.isGrounded)
             GravityForce -= 20f * Time.deltaTime;
